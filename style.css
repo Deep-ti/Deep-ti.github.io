@@ -1,0 +1,99 @@
+:root {
+    --primary-color: #00BCD4;
+    --dark-color: #37474F;
+  }
+  
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  .wrapper {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .sidebar {
+    width: 220px;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  .sidebar h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+  }
+  
+  .sidebar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 12px 0;
+    font-weight: 500;
+  }
+  
+  .sidebar a:hover {
+    text-decoration: underline;
+  }
+  
+  .main-content {
+    margin-left: 220px;
+    flex: 1;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+  }
+  
+  .section {
+    height: 100vh;
+    padding: 40px;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .section h1 {
+    color: var(--dark-color);
+    font-size: 32px;
+    margin-top: 0;
+  }
+  
+  .section p, .section li {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .wrapper {
+      flex-direction: column;
+    }
+    .sidebar {
+      position: relative;
+      width: 100%;
+      flex-direction: row;
+      height: auto;
+    }
+    .main-content {
+      margin: 0;
+    }
+    .sidebar a {
+      margin: 0 10px;
+    }
+  }
+  

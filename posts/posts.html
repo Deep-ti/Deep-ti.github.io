@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog Page</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div class="burger" onclick="toggleMenu()">☰</div>
+
+<div class="navbar" id="navMenu">
+  <a href="#">Home</a>
+  <a href="./database/database_main.html">Database</a>
+</div>
+
+<div class="content">
+  <h1 class="blog-title"></h1>
+  <div class="blog-meta">Posted on June 20, 2025 • By Deepti Menon</div>
+  <div class="blog-body">
+    <p>
+      In this tutorial, we’ll create a modern blog layout using pure HTML and CSS with a vertical navigation menu. The navbar will stay hidden under a burger menu icon on smaller screens and slide in when clicked.
+    </p>
+    <p>
+      The content area will be centered and responsive, displaying blog posts, titles, meta info and body text. You can easily extend this structure to include images, author bios, and comments.
+    </p>
+    <p>
+      To start, we need a basic HTML structure, a styled navbar, and a content container with headings and paragraphs. Using flexbox and media queries, we’ll make it mobile-friendly.
+    </p>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Deepti's Blog. All rights reserved.
+    <a href="../index.html"> About Me</a></p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navMenu').classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>

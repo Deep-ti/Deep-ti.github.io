@@ -1,10 +1,354 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Deepti Menon</title>
-    </head>
-    <body>
-        <h1>Deepti Menon</h1>
-        <p>I'm hosted with GitHub Pages.</p>
-    </body>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepti Menon - Software Engineer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Chosen Palette: Modern Professional (Stone for backgrounds/text, Teal for accents) -->
+    <!-- Application Structure Plan: This SPA is organized into distinct, scrollable sections (Home/About, Experience, Education, Skills, Projects, Contact). A sticky navigation bar at the top allows for quick jumps to any section, enhancing user navigation. This linear, sectioned structure provides a clear, logical flow for presenting a professional profile, mimicking the structured resume format while offering an interactive web experience. It prioritizes scannability and direct access to key information categories. -->
+    <!-- Visualization & Content Choices: 
+        Report Info: Personal Introduction -> Goal: Inform/Engage -> Viz/Presentation: Hero section with image and key details -> Interaction: Direct content consumption -> Justification: Provides immediate context and personal branding. -> Library: HTML/Tailwind.
+        Report Info: Experience & Education -> Goal: Inform/Structure -> Viz/Presentation: Clear list-based items with dates and descriptions -> Interaction: Standard reading/scrolling -> Justification: Standard, effective way to present chronological professional history. -> Library: HTML/Tailwind.
+        Report Info: Skills -> Goal: Inform/Categorize -> Viz/Presentation: Categorized lists in a grid layout -> Interaction: Quick visual scan -> Justification: Organizes diverse skills for easy comprehension. -> Library: HTML/Tailwind.
+        Report Info: Projects -> Goal: Showcase/Demonstrate -> Viz/Presentation: Interactive cards with summary and links -> Interaction: Click for external links -> Justification: Provides concise overviews and calls to action for project exploration. -> Library: HTML/Tailwind.
+        No quantitative data or complex visual relationships are present in a typical profile/resume that would benefit from Chart.js or Plotly.js, so these libraries are not included to keep the application lightweight and focused on its primary objective of presenting professional information. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .section-padding { padding-top: 4rem; padding-bottom: 4rem; }
+        @media (min-width: 768px) {
+            .section-padding { padding-top: 6rem; padding-bottom: 6rem; }
+        }
+        .nav-link.active {
+            color: #0d9488; /* teal-600 */
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md py-4 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-stone-900">Deepti Menon</a>
+            <div class="flex space-x-6">
+                <a href="#about" class="nav-link text-stone-600 hover:text-teal-700 transition-colors duration-200">About</a>
+                <a href="#experience" class="nav-link text-stone-600 hover:text-teal-700 transition-colors duration-200">Experience</a>
+                <a href="#education" class="nav-link text-stone-600 hover:text-teal-700 transition-colors duration-200">Education</a>
+                <a href="#skills" class="nav-link text-stone-600 hover:text-teal-700 transition-colors duration-200">Skills</a>
+                <a href="#projects" class="nav-link text-stone-600 hover:text-teal-700 transition-colors duration-200">Projects</a>
+                <a href="#contact" class="nav-link text-stone-600 hover:text-teal-700 transition-colors duration-200">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+        
+        <!-- Home / About Section -->
+        <section id="home" class="section-padding flex flex-col md:flex-row items-center justify-center text-center md:text-left min-h-screen">
+            <div class="md:w-1/3 mb-8 md:mb-0 md:mr-12">
+                <div class="w-48 h-48 rounded-full bg-stone-200 flex items-center justify-center text-stone-600 text-5xl font-bold mx-auto md:mx-0 overflow-hidden shadow-lg">
+                    <!-- Placeholder for profile image, or use Unicode/HTML for avatar -->
+                    &#128100;
+                </div>
+            </div>
+            <div class="md:w-2/3">
+                <h1 class="text-5xl font-bold text-stone-900 mb-4 leading-tight">Hi, I'm Deepti!</h1>
+                <p class="text-2xl text-teal-600 font-semibold mb-6">Software Engineer</p>
+                <p class="text-lg text-stone-700 leading-relaxed mb-8">
+                    Welcome to my portfolio! I’m a dedicated Software Engineer with hands-on experience in designing and developing scalable, enterprise-grade applications. With a strong foundation in Java, Spring Boot, React, and cloud platforms like AWS and Azure, I enjoy crafting clean, efficient solutions to complex business problems. Over the years, I’ve worked across diverse domains — from e-communication monitoring systems to telecom and product management portals — embracing both backend and full-stack roles. I’m passionate about continuous learning, clean architecture, and delivering applications that are as reliable as they are impactful. Explore my journey and the projects I’ve had the privilege to build.
+                </p>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="https://github.com/Deep-ti" target="_blank" class="px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg shadow-md hover:bg-teal-700 transition-colors duration-200">GitHub</a>
+                    <a href="https://www.linkedin.com/in/deepti-menon" target="_blank" class="px-6 py-3 bg-stone-700 text-white font-semibold rounded-lg shadow-md hover:bg-stone-800 transition-colors duration-200">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section (Optional, can be merged with Home) -->
+        <section id="about" class="section-padding">
+            <h2 class="text-4xl font-bold text-stone-900 mb-8 text-center">About Me</h2>
+            <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg prose max-w-none text-lg text-stone-700">
+                <p class="mb-4">
+                    My journey into software development began with a curiosity for how complex systems work behind the scenes. That curiosity quickly evolved into a passion for building reliable, scalable, and meaningful applications. Over the past 5+ years, I’ve had the opportunity to work as both a backend and full-stack engineer, contributing to enterprise-scale solutions in domains like telecom, financial services, and product management.
+                </p>
+                <p class="mb-4">
+                    I thrive on solving real-world challenges through clean, maintainable code and well-architected systems. My core stack includes Java, Spring Boot, React, and PostgreSQL, complemented by cloud platforms like AWS and Azure DevOps. I believe that good software is built not just with solid code but with empathy for the people who use it — and I aim to reflect that in every project I take on.
+                </p>
+                <p>
+                    Continuous learning is at the core of my professional philosophy. Whether it’s adopting modern microservices patterns, exploring cloud-native solutions, or participating in AI/ML seminars, I’m always seeking ways to improve and evolve. Beyond coding, I enjoy participating in knowledge-sharing sessions, cultural activities, and occasionally losing myself in a good tech podcast or documentary.
+                </p>
+                <p>
+                    This portfolio offers a glimpse into my career journey, technical interests, and the work I’m proud to have built along the way.
+                </p>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section-padding bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+            <h2 class="text-4xl font-bold text-stone-900 mb-8 text-center">Experience</h2>
+            <p class="text-center text-lg text-stone-700 mb-10">
+                A chronological overview of my professional journey and the impact I've made.
+            </p>
+
+            <div class="space-y-10">
+                <div class="flex flex-col md:flex-row items-start mb-10">
+                    <div class="md:w-1/4 text-stone-600 text-sm md:text-base font-semibold mb-2 md:mb-0">
+                      April 2023 – Present
+                    </div>
+                    <div class="md:w-3/4">
+                      <h3 class="text-2xl font-bold text-teal-700 mb-1">Software Engineer - 2 (Full-Stack)</h3>
+                      <p class="text-xl text-stone-800 mb-2">JP Morgan Chase</p>
+                      <ul class="list-disc list-inside text-stone-700 space-y-2">
+                        <li>Worked on an e-communication monitoring portal using microservices, batch jobs, ML flagging, and a React-based UI for supervisory workflows.</li>
+                        <li>Enhanced UI features for integrating email participant information, improving supervisory insights.</li>
+                        <li>Improved email notifications and developed configurable auto-close and assignment rule workflows.</li>
+                        <li>Enabled reassessment workflows for flagged violations, increasing process transparency and control.</li>
+                        <li>Contributed to key feature rollouts enhancing overall portal functionality and user satisfaction.</li>
+                      </ul>
+                    </div>
+                  </div>
+                <div class="flex flex-col md:flex-row items-start mb-10">
+                    <div class="md:w-1/4 text-stone-600 text-sm md:text-base font-semibold mb-2 md:mb-0">
+                      Nov 2021 – April 2023
+                    </div>
+                    <div class="md:w-3/4">
+                      <h3 class="text-2xl font-bold text-teal-700 mb-1">Software Developer</h3>
+                      <p class="text-xl text-stone-800 mb-2">Amdocs Development Center India LLP.</p>
+                      <ul class="list-disc list-inside text-stone-700 space-y-2">
+                        <li>Customized enterprise telecom products for multiple global clients, based on business and technical requirements.</li>
+                        <li>Developed RESTful APIs and GUIs, and provided pre-prod, prod, and post-prod support.</li>
+                        <li>Collaborated in cross-functional agile teams for enhancements, maintenance, and issue resolution.</li>
+                        <li>Delivered 8+ new features and proactively helped reduce existing production defects by 98%.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col md:flex-row items-start mb-10">
+                    <div class="md:w-1/4 text-stone-600 text-sm md:text-base font-semibold mb-2 md:mb-0">
+                      Jan 2019 – Oct 2021
+                    </div>
+                    <div class="md:w-3/4">
+                      <h3 class="text-2xl font-bold text-teal-700 mb-1">Software Developer (Full-Stack)</h3>
+                      <p class="text-xl text-stone-800 mb-2">Jio Platforms Ltd.</p>
+                      <ul class="list-disc list-inside text-stone-700 space-y-2">
+                        <li>Developed new features and migrated Spring MVC-based frameworks to Spring Boot microservices architecture.</li>
+                        <li>Implemented a DB-controlled UI with ReactJS and automated Azure DevOps CI/CD pipelines.</li>
+                        <li>Strengthened application security by mitigating OWASP top 10 vulnerabilities.</li>
+                        <li>Led feature development on product migration, customer form enhancements, and quotation system revamps.</li>
+                        <li>Created a TDD framework that halved deployment cycles and streamlined quality assurance processes.</li>
+                      </ul>
+                    </div>
+                  </div>
+                
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section-padding">
+            <h2 class="text-4xl font-bold text-stone-900 mb-8 text-center">Education</h2>
+            <p class="text-center text-lg text-stone-700 mb-10">
+                My academic background and formal qualifications.
+            </p>
+            <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg space-y-8">
+                <div class="flex flex-col md:flex-row items-start mb-8">
+                    <div class="md:w-1/4 text-stone-600 text-sm md:text-base font-semibold mb-2 md:mb-0">
+                      2014 – 2018
+                    </div>
+                    <div class="md:w-3/4">
+                      <h3 class="text-2xl font-bold text-teal-700 mb-1">Bachelor of Engineering (Electronics)</h3>
+                      <p class="text-xl text-stone-800">Pillai College of Engineering, Mumbai University</p>
+                      <p class="text-sm text-stone-600 mt-1">CGPA: 7.58 / 10</p>
+                    </div>
+                  </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section-padding bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+            <h2 class="text-4xl font-bold text-stone-900 mb-8 text-center">Skills</h2>
+            <p class="text-center text-lg text-stone-700 mb-10">
+                A comprehensive list of my technical proficiencies and tools.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-teal-700 mb-4">Programming Languages</h3>
+                    <ul class="list-disc list-inside text-stone-700 space-y-2">
+                        <li>Java</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>Python</li>
+                        <li>TypeScript</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-teal-700 mb-4">Frameworks & Libraries</h3>
+                    <ul class="list-disc list-inside text-stone-700 space-y-2">
+                        <li>Spring, Springboot</li>
+                        <li>React.js</li>
+                        <li>Node.js</li>
+                        <li>Redux</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-teal-700 mb-4">Databases & DevOps</h3>
+                    <ul class="list-disc list-inside text-stone-700 space-y-2">
+                        <li>PostgreSQL, Oracle</li>
+                        <li>Docker</li>
+                        <li>AWS (EC2, Lambda, S3, RDS)</li>
+                        <li>CI/CD (GitHub Actions, Spinnaker, Jules)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-teal-700 mb-4">Tools & Methodologies</h3>
+                    <ul class="list-disc list-inside text-stone-700 space-y-2">
+                        <li>Git, Bitbucket/GitLab</li>
+                        <li>Jira, Confluence</li>
+                        <li>IntelliJ, VS Code, Eclipse</li>
+                        <li>Agile Scrum</li>
+                        <li>Test-Driven Development</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-padding">
+            <h2 class="text-4xl font-bold text-stone-900 mb-8 text-center">My Projects</h2>
+            <p class="text-center text-lg text-stone-700 mb-10">
+                A selection of personal and professional projects showcasing my development capabilities.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-bold text-teal-700 mb-2">E-commerce Platform Redesign</h3>
+                    <p class="text-stone-600 mb-4 text-sm">React.js, Node.js, Express.js, MongoDB, Stripe API</p>
+                    <p class="text-lg text-stone-700 mb-4">
+                        Full-stack e-commerce application with user authentication, product catalog, shopping cart, and secure payment processing. Implemented a responsive UI and optimized backend queries.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/[your-github]/project1" target="_blank" class="text-stone-600 hover:text-teal-700 transition-colors duration-200">GitHub Repo</a>
+                        <a href="#" target="_blank" class="text-stone-600 hover:text-teal-700 transition-colors duration-200">Live Demo</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-bold text-teal-700 mb-2">Real-time Chat Application</h3>
+                    <p class="text-stone-600 mb-4 text-sm">Node.js, Socket.IO, React.js, PostgreSQL</p>
+                    <p class="text-lg text-stone-700 mb-4">
+                        Built a real-time, multi-user chat application with private messaging and group chats. Utilized WebSockets for instant message delivery and efficient state management.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/[your-github]/project2" target="_blank" class="text-stone-600 hover:text-teal-700 transition-colors duration-200">GitHub Repo</a>
+                        <a href="#" target="_blank" class="text-stone-600 hover:text-teal-700 transition-colors duration-200">Live Demo</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-bold text-teal-700 mb-2">Machine Learning Dashboard</h3>
+                    <p class="text-stone-600 mb-4 text-sm">Python (Flask), D3.js (for custom charts), HTML/CSS</p>
+                    <p class="text-lg text-stone-700 mb-4">
+                        Developed a web dashboard to visualize machine learning model performance. Features interactive charts for data exploration and dynamic report generation.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/[your-github]/project3" target="_blank" class="text-stone-600 hover:text-teal-700 transition-colors duration-200">GitHub Repo</a>
+                        <a href="#" target="_blank" class="text-stone-600 hover:text-teal-700 transition-colors duration-200">Live Demo</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-bold text-teal-700 mb-2">Personal Blog & Portfolio</h3>
+                    <p class="text-stone-600 mb-4 text-sm">Next.js, Tailwind CSS, Markdown (MDX)</p>
+                    <p class="text-lg text-stone-700 mb-4">
+                        A personal blog and portfolio site for sharing technical articles and showcasing projects, built with a focus on SEO and fast loading times.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/[your-github]/project4" target="_blank" class="text-stone-600 hover:text-teal-700 transition-colors duration-200">GitHub Repo</a>
+                        <a href="#" target="_blank" class="text-stone-600 hover:text-teal-700 transition-colors duration-200">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+            <h2 class="text-4xl font-bold text-stone-900 mb-8 text-center">Get In Touch</h2>
+            <p class="text-center text-lg text-stone-700 mb-10">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            </p>
+            <div class="flex flex-col items-center space-y-6">
+                <a href="mailto:deeptimnn@gmail.com" class="px-8 py-4 bg-teal-600 text-white text-xl font-semibold rounded-lg shadow-lg hover:bg-teal-700 transition-colors duration-200">Email Me</a>
+                <p class="text-stone-700">Or find me on:</p>
+                <div class="flex space-x-6 text-3xl">
+                    <a href="https://github.com/Deep-ti" target="_blank" class="text-stone-600 hover:text-teal-700 transition-colors duration-200" title="GitHub"><i class="fab fa-github"></i></a> <!-- Placeholder for GitHub icon -->
+                    <a href="https://www.linkedin.com/in/deepti-menon/" target="_blank" class="text-stone-600 hover:text-teal-700 transition-colors duration-200" title="LinkedIn"><i class="fab fa-linkedin"></i></a> <!-- Placeholder for LinkedIn icon -->
+                    
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center mt-12 py-8 border-t border-stone-200 bg-white">
+        <p class="text-stone-500 text-sm">&copy; 2025 [Your Coder Name]. All rights reserved. | Built with HTML, Tailwind CSS, and JavaScript.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+
+            function highlightNavLink() {
+                let currentActive = null;
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100; // Offset for sticky nav
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                        currentActive = section.id;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    link.classList.remove('text-teal-600', 'font-semibold'); // Remove active styles
+                    link.classList.add('text-stone-600', 'hover:text-teal-700'); // Add default styles
+                    if (link.getAttribute('href') === `#${currentActive}`) {
+                        link.classList.add('active', 'text-teal-600', 'font-semibold');
+                        link.classList.remove('text-stone-600', 'hover:text-teal-700');
+                    }
+                });
+            }
+
+            // Initial highlight on load
+            highlightNavLink();
+
+            // Highlight on scroll
+            window.addEventListener('scroll', highlightNavLink);
+
+            // Smooth scroll for nav links (handled by scroll-smooth on body)
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 80, // Adjust for sticky nav height
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
 </html>
