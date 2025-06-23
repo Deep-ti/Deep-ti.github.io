@@ -1,46 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog Page</title>
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepti Menon - Software Engineer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Chosen Palette: Modern Professional (Stone for backgrounds/text, Teal for accents) -->
+    <!-- Application Structure Plan: This SPA is organized into distinct, scrollable sections (Home/About, Experience, Education, Skills, Projects, Contact). A sticky navigation bar at the top allows for quick jumps to any section, enhancing user navigation. This linear, sectioned structure provides a clear, logical flow for presenting a professional profile, mimicking the structured resume format while offering an interactive web experience. It prioritizes scannability and direct access to key information categories. -->
+    <!-- Visualization & Content Choices: 
+        Report Info: Personal Introduction -> Goal: Inform/Engage -> Viz/Presentation: Hero section with image and key details -> Interaction: Direct content consumption -> Justification: Provides immediate context and personal branding. -> Library: HTML/Tailwind.
+        Report Info: Experience & Education -> Goal: Inform/Structure -> Viz/Presentation: Clear list-based items with dates and descriptions -> Interaction: Standard reading/scrolling -> Justification: Standard, effective way to present chronological professional history. -> Library: HTML/Tailwind.
+        Report Info: Skills -> Goal: Inform/Categorize -> Viz/Presentation: Categorized lists in a grid layout -> Interaction: Quick visual scan -> Justification: Organizes diverse skills for easy comprehension. -> Library: HTML/Tailwind.
+        Report Info: Projects -> Goal: Showcase/Demonstrate -> Viz/Presentation: Interactive cards with summary and links -> Interaction: Click for external links -> Justification: Provides concise overviews and calls to action for project exploration. -> Library: HTML/Tailwind.
+        No quantitative data or complex visual relationships are present in a typical profile/resume that would benefit from Chart.js or Plotly.js, so these libraries are not included to keep the application lightweight and focused on its primary objective of presenting professional information. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .section-padding { padding-top: 4rem; padding-bottom: 4rem; }
+        @media (min-width: 768px) {
+            .section-padding { padding-top: 6rem; padding-bottom: 6rem; }
+        }
+        .nav-link.active {
+            color: #0d9488; /* teal-600 */
+            font-weight: 600;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-stone-50 text-stone-800">
 
-<div class="burger" onclick="toggleMenu()">☰</div>
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md py-4 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-stone-900">Deepti Menon</a>
+        </div>
+    </nav>
 
-<div class="navbar" id="navMenu">
-  <a href="#">Home</a>
-  <a href="./database/database_main.html">Database</a>
-</div>
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+        
+        <section id="projects" class="section-padding">
+            <h2 class="text-4xl font-bold text-stone-900 mb-8 text-center">My Blogs</h2>
+            <p class="text-center text-lg text-stone-700 mb-10">
+                A selection of personal and professional projects showcasing my development capabilities.
+            </p>
 
-<div class="content">
-  <h1 class="blog-title"></h1>
-  <div class="blog-meta">Posted on June 20, 2025 • By Deepti Menon</div>
-  <div class="blog-body">
-    <p>
-      In this tutorial, we’ll create a modern blog layout using pure HTML and CSS with a vertical navigation menu. The navbar will stay hidden under a burger menu icon on smaller screens and slide in when clicked.
-    </p>
-    <p>
-      The content area will be centered and responsive, displaying blog posts, titles, meta info and body text. You can easily extend this structure to include images, author bios, and comments.
-    </p>
-    <p>
-      To start, we need a basic HTML structure, a styled navbar, and a content container with headings and paragraphs. Using flexbox and media queries, we’ll make it mobile-friendly.
-    </p>
-  </div>
-</div>
+            <div class="grid gap-8">
+                <!-- Blog Card 1 -->
+                <a href="./database/database_main.html">
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-2xl font-bold text-teal-700 mb-2">Database</h3>
+                        <p class="text-stone-600 mb-4 text-sm">React.js, Node.js, Express.js, MongoDB, Stripe API</p>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-<footer>
-  <p>&copy; 2025 Deepti's Blog. All rights reserved.
-    <a href="../index.html"> About Me</a></p>
-</footer>
+    </main>
 
-<script>
-  function toggleMenu() {
-    document.getElementById('navMenu').classList.toggle('open');
-  }
-</script>
+    <footer class="text-center mt-12 py-8 border-t border-stone-200 bg-white">
+        <p class="text-stone-500 text-sm underline"><a href="../index.html">Back to Portfolio</a></p>
+        <p class="text-stone-500 text-sm">&copy; 2025 Deepti Menon. All rights reserved. | Built with HTML, Tailwind CSS, and JavaScript.</p>
+    </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+
+            function highlightNavLink() {
+                let currentActive = null;
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100; // Offset for sticky nav
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                        currentActive = section.id;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    link.classList.remove('text-teal-600', 'font-semibold'); // Remove active styles
+                    link.classList.add('text-stone-600', 'hover:text-teal-700'); // Add default styles
+                    if (link.getAttribute('href') === `#${currentActive}`) {
+                        link.classList.add('active', 'text-teal-600', 'font-semibold');
+                        link.classList.remove('text-stone-600', 'hover:text-teal-700');
+                    }
+                });
+            }
+
+            // Initial highlight on load
+            highlightNavLink();
+
+            // Highlight on scroll
+            window.addEventListener('scroll', highlightNavLink);
+
+            // Smooth scroll for nav links (handled by scroll-smooth on body)
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 80, // Adjust for sticky nav height
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

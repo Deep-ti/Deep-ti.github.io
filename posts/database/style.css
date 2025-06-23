@@ -1,0 +1,111 @@
+body { font-family: 'Inter', sans-serif; }
+.font-mono { font-family: 'Roboto Mono', monospace; }
+
+/* Custom styles for code blocks and lists */
+pre[class*="language-"] {
+    background-color: #1f2937; /* Tailwind Gray-800, consistent with Prism tomorrow */
+    color: #e5e7eb; /* Tailwind Gray-200 */
+    padding: 1.25rem; /* Increased padding */
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    position: relative;
+    margin-top: 1.5rem; /* More space above code blocks */
+    margin-bottom: 1.5rem; /* More space below code blocks */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Subtle shadow */
+}
+code[class*="language-"] {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.875rem; /* text-sm */
+    line-height: 1.5;
+}
+
+/* Inline code styling */
+:not(pre) > code {
+    background-color: #f3f4f6; /* Tailwind Gray-100 */
+    color: #1f2937; /* Tailwind Gray-800 */
+    padding: 0.2em 0.4em;
+    margin: 0;
+    border-radius: 0.3em;
+    font-size: 85%; /* Slightly smaller than surrounding text */
+    font-family: 'Roboto Mono', monospace;
+}
+
+.code-block-container {
+    position: relative; /* Needed for absolute positioning of button inside */
+}
+.copy-button {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background-color: rgba(13, 148, 136, 0.7); /* Teal-600 with transparency */
+    color: #ffffff;
+    padding: 0.4rem 0.75rem; /* Slightly adjusted padding */
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 0.75rem; /* text-xs */
+    opacity: 0; /* Hidden by default */
+    pointer-events: none; /* Prevents interaction when hidden */
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+    display: flex; /* For icon alignment */
+    align-items: center;
+    gap: 0.25rem; /* Space between icon and text */
+}
+.code-block-container:hover .copy-button {
+    opacity: 1; /* Visible on hover */
+    pointer-events: auto; /* Enable interaction */
+}
+.copy-button:hover {
+    background-color: #0d9488; /* Solid Teal-600 on hover */
+}
+
+/* List styling for better readability */
+.prose ul, .prose ol {
+    padding-left: 1.5rem; /* Standard indentation */
+    margin-bottom: 1rem; /* Space below list */
+}
+.prose li {
+    margin-bottom: 0.5rem; /* Space between list items */
+    line-height: 1.6; /* Comfortable line height */
+}
+/* Custom bullet color for unordered lists */
+.prose ul li::marker {
+    color: #0d9488; /* Teal-600 */
+}
+/* Custom number color for ordered lists */
+.prose ol li::marker {
+    color: #0d9488; /* Teal-600 */
+}
+
+.toc-link {
+    transition: all 0.15s ease; /* Smooth transitions for TOC links */
+}
+.toc-link.active {
+    color: #0d9488; /* teal-600 */
+    font-weight: 600;
+    border-left: 3px solid #0d9488; /* Highlight with a left border */
+    padding-left: 0.75rem; /* Adjust padding for border */
+}
+/* Ensure nested TOC items are indented */
+.toc-list ul {
+    margin-left: 1rem;
+}
+
+/* Basic prose adjustments for better defaults if not using @tailwindcss/typography */
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    color: #262626; /* stone-900 equivalent */
+    font-weight: 700;
+    line-height: 1.3;
+}
+.prose p {
+    margin-bottom: 1.25em; /* Spacing between paragraphs */
+    line-height: 1.7; /* Good line height for body text */
+}
+.prose a {
+    color: #0d9488; /* teal-600 */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.prose a:hover {
+    color: #14b8a6; /* teal-500 */
+    text-decoration: underline;
+}

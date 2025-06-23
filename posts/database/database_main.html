@@ -1,12 +1,168 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Database</title>
-    </head>
-    <body>
-        Everything i know
-    </body>
-    <footer>
-        <a href="../../index.html">Home</a>
-    </footer>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-8xl">
+        
+        <header class="text-center mb-12">
+            <nav class="mb-6 flex justify-end">
+                <a href="../posts.html" class="text-stone-600 hover:text-teal-700 transition-colors duration-200">All Blogs</a>
+                <a href="../../index.html" class="ml-4 text-stone-600 hover:text-teal-700 transition-colors duration-200">Portfolio</a>
+            </nav>
+            <h1 class="text-4xl font-bold text-stone-900 mb-4 leading-tight">Database</h1>
+            <p class="text-lg text-stone-600">By Deepti Menon</p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 lg:gap-8">
+            <aside id="toc-sidebar" class="hidden lg:block lg:col-span-1 bg-white p-6 rounded-xl shadow-lg sticky top-8 self-start max-h-[calc(100vh-4rem)] overflow-y-auto">
+                <h3 class="text-xl font-bold text-stone-900 mb-4">Table of Contents</h3>
+                <nav id="toc-nav" class="toc-list text-stone-700">
+                    </nav>
+            </aside>
+
+            <main class="lg:col-span-3 bg-white p-6 sm:p-8 rounded-xl shadow-lg mb-12">
+                <section id="blog-post" class="prose max-w-none text-lg text-stone-700">
+                    <p class="mb-6">A database is an <strong>organized collection of data</strong>, typically stored and accessed electronically from a computer system.</p>
+
+                    <p class="mb-6">A <strong>Database Management System (DBMS)</strong> is the software that allows users and applications to interact with the database.</p>
+
+                    <p class="mb-6">A <strong>Query Language</strong> is used by databases to communicate with the DBMS. The most common is <strong>SQL (Structured Query Language)</strong>, primarily used for relational databases.</p>
+                    
+                    <h2 id="structures-of-database" class="text-2xl font-bold text-stone-900 mb-4 mt-8">Structures of Database</h2>
+                    
+                    <p class="mb-4"><strong>Relational Databases (SQL Databases):</strong> Data is organized into <strong>tables</strong>, which consist of <strong>rows</strong> (records) and <strong>columns</strong> (attributes).
+                        <br/> Examples: <strong>MySQL, PostgreSQL, Oracle, Microsoft SQL Server.</strong>
+                        <br /> Use Cases: E-commerce platforms, banking systems, inventory management, CRM systems, where data relationships and integrity are crucial.
+                    </p>
+                    
+                    <p class="mb-4"><strong>Object Databases:</strong> Data is stored in the form of <strong>objects</strong>, as they are used in object-oriented programming (OOP) languages.
+                        <br/> Examples: <strong>Objectivity/DB, GemStone/S, ObjectDB, ObjectDatabase++.</strong>
+                        <br /> Use Cases: CAD/CAM (Computer-Aided Design/Manufacturing), GIS (Geographic Information Systems), Multimedia Applications, Telecommunications, Real-time systems.
+                    </p>
+                    
+                    <p class="mb-4"><strong>Object-Relational Databases:</strong> Essentially a relational database extended with features that support the object-oriented paradigm directly within its schema and query language.
+                        <br/> Examples: <strong>PostgreSQL, Oracle, IBM DB2.</strong>
+                        <br /> Use Cases: E-commerce platforms, banking systems, inventory management, CRM systems, CAD/CAM (Computer-Aided Design/Manufacturing), GIS (Geographic Information Systems), Multimedia Applications, Telecommunications, Real-time systems (these overlap as ORDBs combine features).
+                    </p>
+                    
+                    <p class="mb-4"><strong>Non-Relational Databases (NoSQL Databases):</strong> Data is organized in unstructured or semi-structured formats. They scale horizontally better than traditional relational databases for certain use cases.
+                        <br/> Types include:
+                        <ul>
+                            <li><strong>Document Databases:</strong> Store data in flexible, document-like formats (e.g., JSON). (e.g., <code class="language-text">MongoDB</code>, <code class="language-text">Couchbase</code>)</li>
+                            <li><strong>Key-Value Stores:</strong> Store data as simple key-value pairs. (e.g., <code class="language-text">Redis</code>, <code class="language-text">DynamoDB</code>)</li>
+                            <li><strong>Column-Family Stores:</strong> Store data in columns that are grouped together. (e.g., <code class="language-text">Cassandra</code>, <code class="language-text">HBase</code>)</li>
+                            <li><strong>Graph Databases:</strong> Store data as nodes and edges to represent relationships. (e.g., <code class="language-text">Neo4j</code>)</li>
+                        </ul>
+                        <br /> Use Cases: Social media applications, real-time analytics, content management systems, applications with large volumes of rapidly changing data.
+                    </p>
+                    <!--TODO
+                    Add images
+                    add details about indexing
+                    -->
+                    <h2 id="postgresql" class="text-2xl font-bold text-stone-900 mb-4 mt-8">PostgreSQL</h2>
+                    <p>
+                        PostgreSQL is an <strong>open-source</strong> descendant of the original Berkeley code. It supports a large part of the SQL standard and offers many modern features:
+                        <ul>
+                            <li>complex queries</li>
+                            <li>foreign keys</li>
+                            <li>triggers</li>
+                            <li>updatable views</li>
+                            <li>transactional integrity</li>
+                            <li>multiversion concurrency control (<code class="language-text">MVCC</code>)</li>
+                        </ul>
+                        Also, PostgreSQL can be extended by the user in many ways, for example by adding new
+                        <ul>
+                            <li>data types</li>
+                            <li>functions</li>
+                            <li>operators</li>
+                            <li>aggregate functions</li>
+                            <li>index methods</li>
+                            <li>procedural languages</li>
+                        </ul>
+                    </p>
+                    <h3 id="advanced-features" class="text-xl font-bold text-stone-900 mb-4 mt-8"> Advanced Features </h3>
+                    <ul>
+                        <li>
+                            <strong>Views:</strong> Views allow you to encapsulate the details of the structure of your tables, which might change as your application evolves, behind consistent interfaces.
+                        </li>
+                        <li><strong>Foreign Keys:</strong> A foreign key constraint specifies that the values in a column (or a group of columns) must match the values appearing in some row of another table.
+                            <br/> Note:
+                            <ul>
+                                <li>A foreign key can also constrain and reference a group of columns.</li>
+                                <li><strong>Self-referential foreign key:</strong> the "other table" of a foreign key constraint can be the same table.</li>
+                                <li>A table can have more than one foreign key constraint. This is used to implement many-to-many relationships between tables.</li>
+                                <li><strong>Delete options:</strong> <ul>
+                                        <li><code class="language-text">RESTRICT</code>: prevents deletion of a referenced row.</li>
+                                        <li><code class="language-text">NO ACTION</code>: if any referencing rows still exist when the constraint is checked, an error is raised.</li>
+                                        <li><code class="language-text">CASCADE</code>: when a referenced row is deleted, row(s) referencing it should be automatically deleted as well.</li>
+                                        <li><code class="language-text">SET NULL</code>: referencing column(s) in the referencing row(s) to be set to nulls.</li>
+                                        <li><code class="language-text">SET DEFAULT</code>: referencing column(s) in the referencing row(s) to be set to defaults.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><strong>Transactions:</strong> A transaction is set up by surrounding the SQL commands of the transaction with <code class="language-text">BEGIN</code> and <code class="language-text">COMMIT</code> commands.
+                            <br/> After defining a savepoint with <code class="language-text">SAVEPOINT</code>, you can if needed roll back to the savepoint with <code class="language-text">ROLLBACK TO</code>. All the transaction's database changes between defining the savepoint and rolling back to it are discarded, but changes earlier than the savepoint are kept. After rolling back to a savepoint, it continues to be defined, so you can roll back to it several times. Conversely, if you are sure you won't need to roll back to a particular savepoint again, it can be released, so the system can free some resources. Keep in mind that either releasing
+                        </li>
+                        <li><strong>Window Functions:</strong> A window function performs a calculation across a set of table rows that are somehow related to the current row. This is comparable to the type of calculation that can be done with an aggregate function. However, window functions do not cause rows to become grouped into a single output row like non-window aggregate calls would. Instead, the rows retain their separate identities.
+                            <div class="code-block-container mb-6 relative">
+                                <button class="copy-button" onclick="copyCode(this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                        <path fill-rule="evenodd" d="M11.397 2.148A.75.75 0 0 0 10.5 1.5h-8.25A.75.75 0 0 0 1.5 2.25v12.75a.75.75 0 0 0 .75.75h-.065a.75.75 0 0 0-.568 1.156l3.427 4.493a.75.75 0 0 0 1.112.006l.891-1.16a.75.75 0 1 0-1.173-.902L4.743 17.25h9.514a.75.75 0 0 0 .75-.75V2.25a.75.75 0 0 0-.75-.75h-8.25a.75.75 0 0 0-.897.648ZM16.5 4.5a.75.75 0 0 0-.75-.75h-.825a.75.75 0 0 0-.75.75v.825a.75.75 0 0 0 .75.75h.825a.75.75 0 0 0 .75-.75V4.5Z" clip-rule="evenodd" />
+                                        <path fill-rule="evenodd" d="M19.5 7.5a.75.75 0 0 0-.75-.75h-8.25A.75.75 0 0 0 10.5 7.5v9.75a.75.75 0 0 0 .75.75h8.25a.75.75 0 0 0 .75-.75V7.5Zm-7.5-.75h5.25a.75.75 0 0 0 .75-.75v-.825a.75.75 0 0 0-.75-.75H12a.75.75 0 0 0-.75.75v.825a.75.75 0 0 0 .75.75Z" clip-rule="evenodd" />
+                                    </svg>
+                                    Copy Code
+                                </button>
+                                <pre><code class="language-sql">SELECT depname, empno, salary, avg(salary) OVER (PARTITION BY depname) FROM empsalary;</code></pre>
+                            </div>
+                        </li>
+                        <li><strong>Inheritance:</strong>
+                            <div class="code-block-container mb-6 relative">
+                                <button class="copy-button" onclick="copyCode(this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                        <path fill-rule="evenodd" d="M11.397 2.148A.75.75 0 0 0 10.5 1.5h-8.25A.75.75 0 0 0 1.5 2.25v12.75a.75.75 0 0 0 .75.75h-.065a.75.75 0 0 0-.568 1.156l3.427 4.493a.75.75 0 0 0 1.112.006l.891-1.16a.75.75 0 1 0-1.173-.902L4.743 17.25h9.514a.75.75 0 0 0 .75-.75V2.25a.75.75 0 0 0-.75-.75h-8.25a.75.75 0 0 0-.897.648ZM16.5 4.5a.75.75 0 0 0-.75-.75h-.825a.75.75 0 0 0-.75.75v.825a.75.75 0 0 0 .75.75h.825a.75.75 0 0 0 .75-.75V4.5Z" clip-rule="evenodd" />
+                                        <path fill-rule="evenodd" d="M19.5 7.5a.75.75 0 0 0-.75-.75h-8.25A.75.75 0 0 0 10.5 7.5v9.75a.75.75 0 0 0 .75.75h8.25a.75.75 0 0 0 .75-.75V7.5Zm-7.5-.75h5.25a.75.75 0 0 0 .75-.75v-.825a.75.75 0 0 0-.75-.75H12a.75.75 0 0 0-.75.75v.825a.75.75 0 0 0 .75.75Z" clip-rule="evenodd" />
+                                    </svg>
+                                    Copy Code
+                                </button>
+                                <pre><code class="language-sql">CREATE TABLE capitals (
+    state        char(2) UNIQUE NOT NULL
+  ) INHERITS (cities);</code></pre>
+                            </div>
+                            In this case, a row of capitals inherits all columns (name, population, and elevation) from its parent, cities. <code class="language-text">ONLY</code> before <code class="language-text">cities</code> indicates that the query should be run over only the <code class="language-text">cities</code> table, and not tables below <code class="language-text">cities</code> in the inheritance hierarchy. Many of the commands that we have already discussed — <code class="language-text">SELECT</code>, <code class="language-text">UPDATE</code>, and <code class="language-text">DELETE</code> — support this <code class="language-text">ONLY</code> notation.
+                        </li>
+                    </ul>
+                    
+                    <h2 id="blog-references" class="">References</h2>
+                    <ul>
+                        <li><a href="https://www.codecademy.com/resources/docs/sql/about-sql">Codecademy</a></li>
+                        <li><a href="https://www.postgresql.org/docs">PostgreSQL Documentation</a></li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+        
+        <footer class="text-center mt-12 py-6 border-t border-stone-200">
+            <p class="text-stone-500">© 2025 The Code & Notes Blog. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="./script.js"></script>
+
+</body>
 </html>
