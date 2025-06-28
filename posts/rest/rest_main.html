@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest API</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../style_post_interrnal.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-8xl">
+        
+        <header class="text-center mb-12">
+            <nav class="mb-6 flex justify-end">
+                <a href="../posts.html" class="text-stone-600 hover:text-teal-700 transition-colors duration-200">All Blogs</a>
+                <a href="../../index.html" class="ml-4 text-stone-600 hover:text-teal-700 transition-colors duration-200">Portfolio</a>
+            </nav>
+            <h1 class="text-4xl font-bold text-stone-900 mb-4 leading-tight">ReST API</h1>
+            <p class="text-lg text-stone-600">By Deepti Menon</p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 lg:gap-8">
+            <aside id="toc-sidebar" class="hidden lg:block lg:col-span-1 bg-white p-6 rounded-xl shadow-lg sticky top-8 self-start max-h-[calc(100vh-4rem)] overflow-y-auto">
+                <h3 class="text-xl font-bold text-stone-900 mb-4">Table of Contents</h3>
+                <nav id="toc-nav" class="toc-list text-stone-700">
+                    </nav>
+            </aside>
+
+            <main class="lg:col-span-3 bg-white p-6 sm:p-8 rounded-xl shadow-lg mb-12">
+                <section id="blog-post" class="prose max-w-none text-lg text-stone-700">
+
+  <p>
+    In modern web development, <strong>APIs (Application Programming Interfaces)</strong> serve as the backbone for communication between software components.
+    Among them, <strong>REST (Representational State Transfer)</strong> APIs are the most popular due to their simplicity, scalability, and stateless communication style.
+  </p>
+
+  <h2> What is a REST API?</h2>
+  <p>
+    A REST API is an interface that allows applications to communicate over the internet by following certain constraints and principles.
+    It uses <strong>HTTP methods</strong> to perform operations on resources, enabling scalable, stateless, and decoupled systems.
+  </p>
+
+  <h2> REST API Components</h2>
+
+  <h3> Request</h3>
+  <ul>
+    <li><strong>URI:</strong> Specifies the resource we want to access.</li>
+    <li><strong>Methods:</strong> Common HTTP methods include:
+      <ul>
+        <li><code class="language-text">GET</code> – Fetch a resource</li>
+        <li><code class="language-text">POST</code> – Create a new resource</li>
+        <li><code class="language-text">PUT</code> – Update an existing resource</li>
+        <li><code class="language-text">DELETE</code> – Remove a resource</li>
+      </ul>
+    </li>
+    <li><strong>Headers:</strong> Metadata such as:
+      <ul>
+        <li><code class="language-text">Auth</code> – Authentication token</li>
+        <li><code class="language-text">Content-Type</code>, <code class="language-text">Cookie</code>, <code class="language-text">Cache-Control</code></li>
+      </ul>
+    </li>
+    <li><strong>Body:</strong> For <code class="language-text">POST</code> and <code class="language-text">PUT</code>, contains data to send to the server.</li>
+  </ul>
+
+  <h3> Response</h3>
+  <ul>
+    <li><strong>Status Line:</strong> Includes codes like:
+      <ul>
+        <li><code class="language-text">200 OK</code>, <code class="language-text">201 Created</code>, <code class="language-text">400 Bad Request</code></li>
+        <li><code class="language-text">401 Unauthorized</code>, <code class="language-text">404 Not Found</code>, <code class="language-text">500 Internal Server Error</code></li>
+      </ul>
+    </li>
+    <li><strong>Headers:</strong> Info like content type, token, etc.</li>
+    <li><strong>Body:</strong> Actual data or message returned.</li>
+  </ul>
+
+  <h2> REST API Workflow</h2>
+  <ol>
+    <li><strong>Client Initiates Request</strong>
+      <ul>
+        <li>Sends a request to a specific API URI.</li>
+        <li>Includes HTTP method, headers, and optionally a body.</li>
+      </ul>
+    </li>
+
+    <li><strong>Authentication & Authorization Check</strong>
+      <ul>
+        <li>Server validates client identity using:
+          <ul>
+            <li>API Key</li>
+            <li>JWT/OAuth Token</li>
+            <li>Basic Authentication</li>
+          </ul>
+        </li>
+        <li>If authentication fails, server responds with:
+          <ul>
+            <li><code class="language-text">401 Unauthorized</code> — when no valid credentials are provided</li>
+            <li><code class="language-text">403 Forbidden</code> — when access to the resource is not permitted</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><strong>Request Routing & Processing</strong>
+      <ul>
+        <li>Server routes the request to the appropriate controller or handler based on URI and method.</li>
+        <li>Validates request parameters and body.</li>
+      </ul>
+    </li>
+
+    <li><strong>Business Logic Execution & Data Access</strong>
+      <ul>
+        <li>Server interacts with database or services to fetch, create, update, or delete data as needed.</li>
+        <li>Applies any business logic, validations, or transformations.</li>
+      </ul>
+    </li>
+
+    <li><strong>Response Creation</strong>
+      <ul>
+        <li>Server builds the response with:
+          <ul>
+            <li>HTTP status code (200, 201, 400, 500)</li>
+            <li>Headers (e.g., <code class="language-text">Content-Type</code>, <code class="language-text">Cache-Control</code>, and updated Auth tokens if needed)</li>
+            <li>Response body (JSON/XML data or error message)</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><strong>Response Sent to Client</strong>
+      <ul>
+        <li>Response is delivered back to the client application.</li>
+        <li>Client processes the response to update UI, store tokens, or handle errors.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h2> Benefits of REST APIs</h2>
+<ul>
+  <li><strong>Scalability:</strong> Statelessness allows APIs to scale easily across multiple servers without session management complexities.</li>
+  <li><strong>Flexibility & Decoupling:</strong> Client and server operate independently. The client only requires the API contract (URI and data structure) to interact with the server.</li>
+  <li><strong>Technology Independence:</strong> Any language, platform, or framework can be used on either end as long as communication happens via HTTP.</li>
+  <li><strong>Ease of Caching:</strong> Responses can be cached at the client or intermediary servers based on headers, reducing redundant requests and boosting speed.</li>
+  <li><strong>Improved Maintainability:</strong> Clear separation between frontend and backend development makes APIs easier to debug, update, and scale.</li>
+  <li><strong>Performance Optimization:</strong> APIs can serve data in client-preferred formats (JSON, XML) and optimize endpoints for different devices like web, mobile, or IoT.</li>
+</ul>
+
+<h2> Core REST Principles</h2>
+<ul>
+  <li><strong>Statelessness:</strong> Each request carries all the required data for the server to fulfill it. No session or state is stored on the server between client requests.</li>
+  <li><strong>Uniform Interface:</strong> APIs follow a consistent way of interacting with resources using standard URIs and HTTP methods like <code class="language-text">GET</code>, <code class="language-text">POST</code>, <code class="language-text">PUT</code>, and <code class="language-text">DELETE</code>.</li>
+  <li><strong>Layered System:</strong> The API architecture can include multiple intermediary servers such as proxies, load balancers, or firewalls. Clients remain unaware of these intermediaries.</li>
+  <li><strong>Cacheability:</strong> Responses should indicate if they’re cacheable, allowing clients and proxies to store responses for subsequent requests, improving efficiency and reducing server load.</li>
+  <li><strong>Code on Demand (Optional):</strong> Servers can enhance client functionality by sending executable code like JavaScript. This principle is optional and rarely used in most REST APIs.</li>
+</ul>
+
+
+<h2> Detailed Authentication in REST APIs</h2>
+
+<p>Authentication verifies the identity of a client attempting to access an API. Since REST APIs are stateless, each request must independently carry credentials for authentication.</p>
+
+<h3>Common Authentication Methods</h3>
+
+<h4> API Key Authentication</h4>
+<p>A unique key is issued to a client and passed with every request, usually in a header or query parameter.</p>
+<code class="language-json">
+GET /api/customers HTTP/1.1
+Authorization: ApiKey 12345xyz
+</code>
+<ul>
+  <li> Simple to implement</li>
+  <li> Not very secure if not used over HTTPS</li>
+  <li> Hard to revoke or track individual keys</li>
+</ul>
+
+<h4> Basic Authentication</h4>
+<p>Sends a Base64-encoded string of <code class="language-text">username:password</code> in the header.</p>
+<code class="language-text">
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+</code>
+<ul>
+  <li> Very simple to set up</li>
+  <li> Unsafe unless over HTTPS</li>
+  <li> Sends credentials with every request</li>
+</ul>
+
+<h4> Bearer Token (JWT/OAuth Token)</h4>
+<p>The client sends a token with each request in the <code class="language-text">Authorization</code> header. The server validates this token before processing the request.</p>
+<code class="language-text">
+Authorization: Bearer eyJhbGciOiJIUzI1...
+</code>
+<ul>
+  <li> Secure and stateless</li>
+  <li> Supports expiration, revocation, and embedded claims</li>
+  <li> Can contain user roles and permissions</li>
+</ul>
+
+<h4> OAuth 2.0 Authentication</h4>
+<p>An industry-standard framework for secure, delegated API access, especially popular with large platforms like Google and Facebook.</p>
+<ul>
+  <li> Highly secure and scalable</li>
+  <li> Allows third-party apps to act on behalf of users without sharing passwords</li>
+  <li> More complex to set up</li>
+</ul>
+
+<h3>Authentication in the Workflow</h3>
+<ol>
+  <li>The client sends a request with credentials (API key, token, etc.).</li>
+  <li>The server intercepts and validates credentials before routing or business logic execution.</li>
+  <li>If invalid, the server immediately responds with <code class="language-text">401 Unauthorized</code> or <code class="language-text">403 Forbidden</code>.</li>
+  <li>If valid, the request proceeds to processing, database access, and response generation.</li>
+</ol>
+
+<h3>Why is Authentication Critical?</h3>
+<ul>
+  <li>Prevents unauthorized access to services and data.</li>
+  <li>Secures sensitive transactions and operations.</li>
+  <li>Enables usage monitoring and logging per user or application.</li>
+  <li>Protects APIs from abuse and malicious activity.</li>
+</ul>
+
+
+<h2> HTTP Methods Explained (In-Depth)</h2>
+
+<p>HTTP methods are verbs that define the action to be performed on a resource in a REST API. They are central to REST’s uniform interface constraint and guide how clients interact with resources.</p>
+
+<h3>GET</h3>
+<ul>
+  <li><strong>Purpose:</strong> Retrieve data from the server.</li>
+  <li><strong>Request Body:</strong> Not allowed.</li>
+  <li><strong>Response:</strong> Data in JSON, XML, or plain text format.</li>
+</ul>
+<code class="language-text">GET /api/customers/123</code>
+
+<h3>POST</h3>
+<ul>
+  <li><strong>Purpose:</strong> Create a new resource.</li>
+  <li><strong>Request Body:</strong> Contains the new resource data.</li>
+  <li><strong>Response:</strong> 201 Created with the new resource URI or data.</li>
+</ul>
+    <pre><code class="language-json">
+POST /api/customers
+Body: {
+    "name": "Alex",
+    "email": "alex@example.com"
+}
+</code></pre>
+
+<h3>PUT</h3>
+<ul>
+  <li><strong>Purpose:</strong> Update an existing resource or create it if absent.</li>
+  <li><strong>Request Body:</strong> Full updated resource data.</li>
+  <li><strong>Response:</strong> 200 OK or 201 Created.</li>
+</ul>
+    <pre><code class="language-json">
+PUT /api/customers/123
+Body: {
+    "name": "Alex Updated",
+    "email": "alex@example.com"
+}
+</code></pre>
+
+<h3>PATCH</h3>
+<ul>
+  <li><strong>Purpose:</strong> Partially update a resource.</li>
+  <li><strong>Request Body:</strong> Only the fields to be updated.</li>
+  <li><strong>Response:</strong> 200 OK or 204 No Content.</li>
+</ul>
+    <pre><code class="language-json">
+PATCH /api/customers/123
+Body: {
+    "email": "alex.updated@example.com"
+}
+</code></pre>
+
+<h3>DELETE</h3>
+<ul>
+  <li><strong>Purpose:</strong> Remove a resource.</li>
+  <li><strong>Request Body:</strong> Not typically required.</li>
+  <li><strong>Response:</strong> 200 OK or 204 No Content.</li>
+</ul>
+<code class="language-text">DELETE /api/customers/123</code>
+
+<h3>Summary of HTTP Methods Properties</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Safe</th>
+      <th>Idempotent</th>
+      <th>Cacheable</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>GET</td><td>✅</td><td>✅</td><td>✅</td><td>Retrieve data</td></tr>
+    <tr><td>POST</td><td>❌</td><td>❌</td><td>❌</td><td>Create new resource</td></tr>
+    <tr><td>PUT</td><td>❌</td><td>✅</td><td>❌</td><td>Update or create resource</td></tr>
+    <tr><td>PATCH</td><td>❌</td><td>✅</td><td>❌</td><td>Partially update resource</td></tr>
+    <tr><td>DELETE</td><td>❌</td><td>✅</td><td>❌</td><td>Remove resource</td></tr>
+  </tbody>
+</table>
+
+
+  <h2>Conclusion</h2>
+  <p>
+    REST APIs are the cornerstone of modern web application architecture. 
+    By understanding how they work and following REST principles, developers can build efficient, secure, and scalable systems.
+  </p>
+                </section>
+            </main>
+        </div>
+        
+        <footer class="text-center mt-12 py-6 border-t border-stone-200">
+            <p class="text-stone-500">© 2025 The Code & Notes Blog. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="../script.js"></script>
+
+</body>
+</html>
